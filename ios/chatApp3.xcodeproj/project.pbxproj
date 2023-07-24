@@ -7,40 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01483EFECB844D99A36C71A8 /* Baloo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B8CE1A385D44557810E2036 /* Baloo2-Regular.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1FB758E404C2417AA34FF601 /* Baloo2-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F22773F2F043EB93566F91 /* Baloo2-SemiBold.ttf */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
+		3FB43D4AADC2438B89F07DE8 /* Baloo2-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF08BC43724A4F3DAE455BFF /* Baloo2-Medium.ttf */; };
+		7794635018934505A83A5530 /* Baloo2-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11C57C12CAEB42359ADD2029 /* Baloo2-ExtraBold.ttf */; };
+		8C40DF02DE6C4FE1929D8944 /* Baloo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06D2E142DFEE44398BBD0173 /* Baloo2-Bold.ttf */; };
 		96905EF65AED1B983A6B3ABC /* libPods-chatApp3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-chatApp3.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		8C40DF02DE6C4FE1929D8944 /* Baloo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06D2E142DFEE44398BBD0173 /* Baloo2-Bold.ttf */; };
-		7794635018934505A83A5530 /* Baloo2-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11C57C12CAEB42359ADD2029 /* Baloo2-ExtraBold.ttf */; };
-		3FB43D4AADC2438B89F07DE8 /* Baloo2-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF08BC43724A4F3DAE455BFF /* Baloo2-Medium.ttf */; };
-		01483EFECB844D99A36C71A8 /* Baloo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B8CE1A385D44557810E2036 /* Baloo2-Regular.ttf */; };
-		1FB758E404C2417AA34FF601 /* Baloo2-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F22773F2F043EB93566F91 /* Baloo2-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		06D2E142DFEE44398BBD0173 /* Baloo2-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Baloo2-Bold.ttf"; path = "../assets/fonts/Baloo_2/static/Baloo2-Bold.ttf"; sourceTree = "<group>"; };
+		11C57C12CAEB42359ADD2029 /* Baloo2-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Baloo2-ExtraBold.ttf"; path = "../assets/fonts/Baloo_2/static/Baloo2-ExtraBold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* chatApp3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatApp3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = chatApp3/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = chatApp3/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = chatApp3/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = chatApp3/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = chatApp3/main.m; sourceTree = "<group>"; };
+		4B8CE1A385D44557810E2036 /* Baloo2-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Baloo2-Regular.ttf"; path = "../assets/fonts/Baloo_2/static/Baloo2-Regular.ttf"; sourceTree = "<group>"; };
+		57F22773F2F043EB93566F91 /* Baloo2-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Baloo2-SemiBold.ttf"; path = "../assets/fonts/Baloo_2/static/Baloo2-SemiBold.ttf"; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-chatApp3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chatApp3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-chatApp3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatApp3.debug.xcconfig"; path = "Target Support Files/Pods-chatApp3/Pods-chatApp3.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-chatApp3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatApp3.release.xcconfig"; path = "Target Support Files/Pods-chatApp3/Pods-chatApp3.release.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = chatApp3/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+		DF08BC43724A4F3DAE455BFF /* Baloo2-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Baloo2-Medium.ttf"; path = "../assets/fonts/Baloo_2/static/Baloo2-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-chatApp3/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		06D2E142DFEE44398BBD0173 /* Baloo2-Bold.ttf */ = {isa = PBXFileReference; name = "Baloo2-Bold.ttf"; path = "../assets/fonts/Baloo_2/static/Baloo2-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		11C57C12CAEB42359ADD2029 /* Baloo2-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Baloo2-ExtraBold.ttf"; path = "../assets/fonts/Baloo_2/static/Baloo2-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DF08BC43724A4F3DAE455BFF /* Baloo2-Medium.ttf */ = {isa = PBXFileReference; name = "Baloo2-Medium.ttf"; path = "../assets/fonts/Baloo_2/static/Baloo2-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4B8CE1A385D44557810E2036 /* Baloo2-Regular.ttf */ = {isa = PBXFileReference; name = "Baloo2-Regular.ttf"; path = "../assets/fonts/Baloo_2/static/Baloo2-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		57F22773F2F043EB93566F91 /* Baloo2-SemiBold.ttf */ = {isa = PBXFileReference; name = "Baloo2-SemiBold.ttf"; path = "../assets/fonts/Baloo_2/static/Baloo2-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +68,19 @@
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
 			);
 			name = chatApp3;
+			sourceTree = "<group>";
+		};
+		1F403302632944128B680F0E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				06D2E142DFEE44398BBD0173 /* Baloo2-Bold.ttf */,
+				11C57C12CAEB42359ADD2029 /* Baloo2-ExtraBold.ttf */,
+				DF08BC43724A4F3DAE455BFF /* Baloo2-Medium.ttf */,
+				4B8CE1A385D44557810E2036 /* Baloo2-Regular.ttf */,
+				57F22773F2F043EB93566F91 /* Baloo2-SemiBold.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -143,19 +156,6 @@
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
-		};
-		1F403302632944128B680F0E /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				06D2E142DFEE44398BBD0173 /* Baloo2-Bold.ttf */,
-				11C57C12CAEB42359ADD2029 /* Baloo2-ExtraBold.ttf */,
-				DF08BC43724A4F3DAE455BFF /* Baloo2-Medium.ttf */,
-				4B8CE1A385D44557810E2036 /* Baloo2-Regular.ttf */,
-				57F22773F2F043EB93566F91 /* Baloo2-SemiBold.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 

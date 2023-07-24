@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "chatApp3",
+    "slug": "chatApp3",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

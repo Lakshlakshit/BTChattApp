@@ -1,109 +1,137 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet, Text, View, NativeEventEmitter,
-  PermissionsAndroid, Platform, NativeModules,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
 } from 'react-native';
-import { Landing } from './Pages/Landing';
 import BleManager from 'react-native-ble-manager';
-import { NavigationContainer } from '@react-navigation/native';
 
-
-
-const BleManagerModule = NativeModules.BleManager;
-const BleManagerEmitter = new NativeEventEmitter(BleManagerModule);
 const App = () => {
-  const peripherals = new Map();
-
-  const [connected, setConnected] = useState(false);
+  const [bluetoothDevices, setBluetoothDevices] = useState([]);
   const [isScanning, setIsScanning] = useState(false);
-
-
-
+  const [isBluetoothPoweredOn, setIsBluetoothPoweredOn] = useState(false);
 
   useEffect(() => {
-    // turn on bluetooth if it is not on
-    BleManager.enableBluetooth().then(() => {
-      console.log('Bluetooth is turned on!');
-    });
-    // start bluetooth manager
-    BleManager.start({ showAlert: false }).then(() => {
-      console.log('BLE Manager initialized');
-    });
-    let stopListener = BleManagerEmitter.addListener(
-      'BleManagerStopScan',
-      () => {
-        setIsScanning(false);
-        console.log('Scan is stopped');
-        handleGetConnectedDevices();
-      },
-    );
-    let getavailableDevices = BleManagerEmitter.addListener(
-      'BleManagerDiscoverPeripheral',
-      (abc) => {
-        console.log(abc)
-      },
-    )
-    if (Platform.OS === 'android' && Platform.Version >= 23) {
-      PermissionsAndroid.check(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      ).then(result => {
-        if (result) {
-          console.log('Permission is OK');
-        } else {
-          PermissionsAndroid.request(
-            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-          ).then(result => {
-            if (result) {
-              console.log('User accept');
-            } else {
-              console.log('User refuse');
-            }
-          });
-        }
+    BleManager.start({ showAlert: false })
+      .then(() => {
+        console.log('Bluetooth initialized');
+        setIsBluetoothPoweredOn(true);
+      })
+      .catch(error => {
+        console.error('Bluetooth initialization error:', error);
+        setIsBluetoothPoweredOn(false);
       });
-    }
-    return () => {
-      getavailableDevices,
-      stopListener.remove();
-    };
   }, []);
-  
 
-
-  const handleGetConnectedDevices = () => {
-    BleManager.getConnectedPeripherals([]).then(results => {
-      console.log(results)
-      if (results.length == 0) {
-        console.log('No connected bluetooth devices');
-      } else {
-        for (let i = 0; i < results.length; i++) {
-          let peripheral = results[i];
-          peripheral.connected = true;
-          peripherals.set(peripheral.id, peripheral);
-          setConnected(true);
-          setBluetoothDevices(Array.from(peripherals.values()));
-        }
-      }
-    });
+  const startScan = () => {
+    if (!isScanning && isBluetoothPoweredOn) {
+      BleManager.scan([], 10, false)
+        .then(results => {
+          console.log('Scanning...');
+          setIsScanning(true);
+          const discoveredDevices = results.map(result => ({
+            id: result.id,
+            name: result.name || 'Unknown Device',
+          }));
+          setBluetoothDevices(discoveredDevices);
+          console.log(results, 'resultsssssssss');
+        })
+        .catch(err => {
+          console.error(err);
+          setIsScanning(false);
+        });
+    } else {
+      console.log('Bluetooth is not powered on.');
+    }
   };
 
   return (
-    <NavigationContainer>
-      <Landing />
-    </NavigationContainer>
+    <SafeAreaView style={styles.main}>
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.welcomeText}>Welcome to the Bluetooth Chat App</Text>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            style={styles.buttonStyle}
+            onPress={startScan}
+          >
+            <Text style={styles.buttonTextStyle}>
+              {isScanning ? 'Scanning...' : 'Scan Bluetooth Devices'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        {/* list of scanned bluetooth devices */}
+        <View>
+          {bluetoothDevices.map(device => (
+            <View key={device.id} style={styles.deviceContainer}>
+              <Text style={styles.deviceName}>{device.name}</Text>
+              <Text style={styles.deviceId}>ID: {device.id}</Text>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
+};
 
-}
-
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+const styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    backgroundColor: '#0082FC',
+    paddingTop: '30%',
+  },
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  welcomeText: {
+    color: 'white',
+    fontSize: 40,
+    textAlign: 'center',
+    fontFamily: 'Baloo2-Bold',
+  },
+  buttonStyle: {
+    backgroundColor: 'white',
+    borderWidth: 0,
+    color: '#FFFFFF',
+    borderColor: '#307ecc',
+    height: 50,
+    alignItems: 'center',
+    borderRadius: 50,
+    marginLeft: 45,
+    marginRight: 45,
+    marginTop: 25,
+  },
+  buttonTextStyle: {
+    color: '#0082FC',
+    paddingVertical: 10,
+    fontSize: 16,
+    fontFamily: 'Baloo2-medium',
+  },
+  deviceContainer: {
+    backgroundColor: 'white',
+    borderRadius: 5,
+    marginVertical: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  deviceName: {
+    fontSize: 18,
+    textTransform: 'capitalize',
+    color: '#0082FC',
+  },
+  deviceId: {
+    fontSize: 14,
+    color: '#0082FC',
+  },
+});
 
 export default App;

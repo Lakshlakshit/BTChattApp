@@ -3,17 +3,24 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 
 export const Landing = () => {
+  const App = () => {
+    const peripherals = new Map();
+    const [isScanning, setIsScanning] = useState(false);
+    const [connected, setConnected] = useState(false);
+    const [bluetoothDevices, setBluetoothDevices] = useState([]);
+    
     return (
         
-        <View style={styles.main}>
-            <Text style={styles.welcomeText}>
-                Welcome to the Bluetooth Chat App
-            </Text>
-            <TouchableOpacity activeOpacity={0.5} style={styles.buttonStyle}>
-                <Text style={styles.buttonTextStyle}> Scan Bluetooth Devices </Text>
-            </TouchableOpacity>
-        </View>
+      <View style={styles.main}>
+        <Text style={styles.welcomeText}>
+          Welcome to the Bluetooth Chat App
+        </Text>
+        <TouchableOpacity activeOpacity={0.5} style={styles.buttonStyle}>
+          <Text style={styles.buttonTextStyle}> Scan Bluetooth Devices </Text>
+        </TouchableOpacity>
+      </View>
     )
+  }
 }
 
 const styles = StyleSheet.create({

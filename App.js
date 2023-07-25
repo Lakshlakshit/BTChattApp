@@ -17,7 +17,7 @@ const App = () => {
 
   const [connected, setConnected] = useState(false);
   const [isScanning, setIsScanning] = useState(false);
-
+  const [bluetoothDevices, setBluetoothDevices] = useState([]);
 
 
 
@@ -38,12 +38,12 @@ const App = () => {
         handleGetConnectedDevices();
       },
     );
-    let getavailableDevices = BleManagerEmitter.addListener(
-      'BleManagerDiscoverPeripheral',
-      (abc) => {
-        console.log(abc)
-      },
-    )
+    // let getavailableDevices = BleManagerEmitter.addListener(
+    //   'BleManagerDiscoverPeripheral',
+    //   (abc) => {
+    //     console.log(abc)
+    //   },
+    // )
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -64,12 +64,22 @@ const App = () => {
       });
     }
     return () => {
-      getavailableDevices,
+      // getavailableDevices,
       stopListener.remove();
     };
   }, []);
   
-
+  const startScan = () => {
+    if (!isScanning) {
+      BleManager.scan([], 5, true)
+        .then(() => {
+          setIsScanning(true);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  };
 
   const handleGetConnectedDevices = () => {
     BleManager.getConnectedPeripherals([]).then(results => {
@@ -86,6 +96,34 @@ const App = () => {
         }
       }
     });
+  };
+  const connectToPeripheral = peripheral => {
+    if (peripheral.connected) {
+      BleManager.disconnect(peripheral.id).then(() => {
+        peripheral.connected = false;
+        setConnected(false);
+        alert(`Disconnected from ${peripheral.name}`);
+      });
+    } else {
+      BleManager.connect(peripheral.id)
+        .then(() => {
+          let peripheralResponse = peripherals.get(peripheral.id);
+          if (peripheralResponse) {
+            peripheralResponse.connected = true;
+            peripherals.set(peripheral.id, peripheralResponse);
+            setConnected(true);
+            setBluetoothDevices(Array.from(peripherals.values()));
+          }
+          alert('Connected to ' + peripheral.name);
+        })
+        .catch(error => console.log(error));
+      /* Read current RSSI value */
+      setTimeout(() => {
+        BleManager.retrieveServices(peripheral.id).then(peripheralData => {
+          console.log('Peripheral services:', peripheralData);
+        });
+      }, 900);
+    }
   };
 
   return (

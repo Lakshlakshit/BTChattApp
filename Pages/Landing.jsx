@@ -3,34 +3,34 @@ import { StyleSheet, Text, TouchableOpacity, View, ScrollView, SafeAreaView } fr
 import BleManager from 'react-native-ble-manager';
 
 
-  const connectToPeripheral = peripheral => {
-    if (peripheral.connected) {
-      BleManager.disconnect(peripheral.id).then(() => {
-        peripheral.connected = false;
-        setConnected(false);
-        alert(`Disconnected from ${peripheral.name}`);
-      });
-    } else {
-      BleManager.connect(peripheral.id)
-        .then(() => {
-          let peripheralResponse = peripherals.get(peripheral.id);
-          if (peripheralResponse) {
-            peripheralResponse.connected = true;
-            peripherals.set(peripheral.id, peripheralResponse);
-            setConnected(true);
-            setBluetoothDevices(Array.from(peripherals.values()));
-          }
-          alert('Connected to ' + peripheral.name);
-        })
-        .catch(error => console.log(error));
-      /* Read current RSSI value */
-      setTimeout(() => {
-        BleManager.retrieveServices(peripheral.id).then(peripheralData => {
-          console.log('Peripheral services:', peripheralData);
-        });
-      }, 900);
-    }
-  };
+  // const connectToPeripheral = peripheral => {
+  //   if (peripheral.connected) {
+  //     BleManager.disconnect(peripheral.id).then(() => {
+  //       peripheral.connected = false;
+  //       setConnected(false);
+  //       alert(`Disconnected from ${peripheral.name}`);
+  //     });
+  //   } else {
+  //     BleManager.connect(peripheral.id)
+  //       .then(() => {
+  //         let peripheralResponse = peripherals.get(peripheral.id);
+  //         if (peripheralResponse) {
+  //           peripheralResponse.connected = true;
+  //           peripherals.set(peripheral.id, peripheralResponse);
+  //           setConnected(true);
+  //           setBluetoothDevices(Array.from(peripherals.values()));
+  //         }
+  //         alert('Connected to ' + peripheral.name);
+  //       })
+  //       .catch(error => console.log(error));
+  //     /* Read current RSSI value */
+  //     setTimeout(() => {
+  //       BleManager.retrieveServices(peripheral.id).then(peripheralData => {
+  //         console.log('Peripheral services:', peripheralData);
+  //       });
+  //     }, 900);
+  //   }
+  // };
   const RenderItem = ({ peripheral }) => {
     const color = peripheral.connected ? 'green' : '#fff';
     return (

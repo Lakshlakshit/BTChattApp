@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>Allow the app to use Bluetooth</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -52,6 +54,8 @@
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>
 	<key>UIAppFonts</key>
+	
+
 	<array>
 		<string>Baloo2-Bold.ttf</string>
 		<string>Baloo2-ExtraBold.ttf</string>
